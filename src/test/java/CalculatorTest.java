@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CalculatorTest {
 
     int tal1 = 4;
-    int tal2 = 5;
+    int tal2 = 6;
 
     @BeforeEach
     public void setup(){
