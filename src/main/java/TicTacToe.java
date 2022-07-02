@@ -1,16 +1,19 @@
 public class TicTacToe {
+    GameBoard gameBoard;
 
-    public char[][] gameBoard() {
-        char[][] gameBoard = new char[3][3];
+    public void initializeGameBoard() {
+        gameBoard = new GameBoard();
         int squareNr = 1;
+
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                char chNr = Integer.toString(squareNr).charAt(0);
-                gameBoard[i][j] = chNr;
+                if (gameBoard.getBoard()[i][j] != 'x' || gameBoard.getBoard()[i][j] != 'o') {
+                    char chNr = Integer.toString(squareNr).charAt(0);
+                    gameBoard.setBoard(i, j, chNr);
+                }
                 squareNr++;
             }
         }
-        return gameBoard;
     }
 
     public void printGame() {
@@ -19,14 +22,14 @@ public class TicTacToe {
         for (int i = 0; i < 3; i++) {
             System.out.print("|");
             for (int j = 0; j < 3; j++) {
-                System.out.print(" " + gameBoard()[i][j] + " |");
+                System.out.print(" " + gameBoard.getBoard()[i][j] + " |");
             }
             System.out.println("\n-------------");
         }
     }
 
     public void run() {
-        gameBoard();
+        initializeGameBoard();
         printGame();
 
     }
