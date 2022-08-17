@@ -8,6 +8,7 @@ public class GameBoard {
     }
 
     public void setBoard(int x, int y, char input) {
-        board[x][y] = input;
+        if (board[x][y] != 'X' || board[x][y] != 'X')
+            board[x][y] = input;
     }
 }

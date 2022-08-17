@@ -40,13 +40,21 @@ public class TicTacToe {
     }
 
     public void run() {
-        initializeGameBoard();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Choose a number:");
-        String userInput = scanner.nextLine();
-        boolean isValid = isValidInput(userInput);
 
-        // printGame();
+        while (true) {
+            initializeGameBoard();
+
+            System.out.println("Welcome to Tic Tac Toe");
+            System.out.println("Player X starts the game. Lets play!");
+
+            printGame();
+
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Choose a number:");
+            String userInput = scanner.nextLine();
+            boolean isValid = isValidInput(userInput);
+
+        }
 
     }
 }

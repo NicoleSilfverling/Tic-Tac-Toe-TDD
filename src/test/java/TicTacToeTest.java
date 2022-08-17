@@ -49,10 +49,14 @@ public class TicTacToeTest {
         assertFalse(game.isValidInput("0"));
     }
 
-    // @Test
-    // @DisplayName("Can't place x/o on already taken square")
-    // public void squareIsTaken() {
+    @Test
+    @DisplayName("Add x/o to list if square is free")
+    public void addToListIfFree() {
+        game.gameBoard.setBoard(0, 0, 'X');
+        game.gameBoard.setBoard(0, 0, 'O');
 
-    // }
+        assertEquals('X', game.gameBoard.getBoard()[0][0]);
+
+    }
 
 }
