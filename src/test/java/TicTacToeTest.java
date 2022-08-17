@@ -43,11 +43,11 @@ public class TicTacToeTest {
         assertFalse(game.isValidInput("nine"));
     }
 
-    // @Test
-    // @DisplayName("Only 1-9 is valid input from user")
-    // public void onlyAcceptNumbersOneToNine() {
-    // assertFalse(game.isValidInput("0"));
-    // }
+    @Test
+    @DisplayName("Only 1-9 is valid input from user")
+    public void onlyAcceptNumbersOneToNine() {
+        assertFalse(game.isValidInput("0"));
+    }
 
     // @Test
     // @DisplayName("Can't place x/o on already taken square")
