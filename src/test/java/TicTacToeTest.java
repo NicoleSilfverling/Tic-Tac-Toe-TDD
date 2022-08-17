@@ -2,11 +2,12 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TicTacToeTest {
-    GameBoard board;
+    TicTacToe game;
 
     @BeforeEach
     public void beforeTest() {
-        board = new GameBoard();
+        game = new TicTacToe();
+        game.initializeGameBoard();
         System.out.println("Test started");
     }
 
@@ -18,7 +19,7 @@ public class TicTacToeTest {
     @Test
     @DisplayName("Game board has 9 squares")
     public void gameBoardHasNineSquares() {
-        int nrOfSquares = (board.getBoard().length * board.getBoard()[0].length);
+        int nrOfSquares = game.gameBoard.getBoard().length * game.gameBoard.getBoard()[0].length;
         assertEquals(9, nrOfSquares);
     }
 
@@ -28,12 +29,30 @@ public class TicTacToeTest {
         boolean boardIsEmpty = true;
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
-                if (board.getBoard()[i][j] == 'x' || board.getBoard()[i][j] == 'o') {
+                if (game.gameBoard.getBoard()[i][j] == 'x' || game.gameBoard.getBoard()[i][j] == 'o') {
                     boardIsEmpty = false;
                 }
             }
         }
         assertTrue(boardIsEmpty);
     }
+
+    @Test
+    @DisplayName("Only integers are valid input from user")
+    public void shouldOnlyAcceptInteger() {
+        assertFalse(game.isValidInput("nine"));
+    }
+
+    // @Test
+    // @DisplayName("Only 1-9 is valid input from user")
+    // public void oneToNineIsValidInput() {
+
+    // }
+
+    // @Test
+    // @DisplayName("Can't place x/o on already taken square")
+    // public void squareIsTaken() {
+
+    // }
 
 }

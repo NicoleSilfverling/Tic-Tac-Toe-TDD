@@ -28,6 +28,11 @@ public class TicTacToe {
         }
     }
 
+    public boolean isValidInput(String userInput) {
+
+        return false;
+    }
+
     public void run() {
         initializeGameBoard();
         printGame();
