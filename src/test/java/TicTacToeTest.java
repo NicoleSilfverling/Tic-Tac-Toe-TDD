@@ -38,15 +38,15 @@ public class TicTacToeTest {
     }
 
     @Test
-    @DisplayName("Only integers are valid input from user")
-    public void shouldOnlyAcceptInteger() {
+    @DisplayName("Only one integer is a valid input from user")
+    public void shouldOnlyAcceptSingleInteger() {
         assertFalse(game.isValidInput("nine"));
     }
 
     // @Test
     // @DisplayName("Only 1-9 is valid input from user")
-    // public void oneToNineIsValidInput() {
-
+    // public void onlyAcceptNumbersOneToNine() {
+    // assertFalse(game.isValidInput("0"));
     // }
 
     // @Test

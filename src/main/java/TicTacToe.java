@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class TicTacToe {
     GameBoard gameBoard;
 
@@ -29,13 +31,24 @@ public class TicTacToe {
     }
 
     public boolean isValidInput(String userInput) {
+        if (userInput.length() == 1) {
+            char ch = userInput.charAt(0);
+            if (Character.isDigit(ch))
+                return true;
+        }
 
         return false;
     }
 
     public void run() {
         initializeGameBoard();
-        printGame();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Choose a number:");
+        String userInput = scanner.nextLine();
+        boolean isValid = isValidInput(userInput);
+        System.out.println("is valid input: " + isValid);
+
+        // printGame();
 
     }
 }
