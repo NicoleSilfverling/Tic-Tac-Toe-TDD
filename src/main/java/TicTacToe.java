@@ -1,22 +1,27 @@
 import java.util.Scanner;
 
 public class TicTacToe {
-    GameBoard gameBoard;
+    GameBoard gameBoard = new GameBoard();
 
-    public void initializeGameBoard() {
-        gameBoard = new GameBoard();
-        int squareNr = 1;
+    public void run() {
 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (gameBoard.getBoard()[i][j] != 'x' || gameBoard.getBoard()[i][j] != 'o') {
-                    char chNr = Integer.toString(squareNr).charAt(0);
-                    gameBoard.setBoard(i, j, chNr);
-                }
-                squareNr++;
-            }
+        while (true) {
+            // gameBoard = new GameBoard();
+            System.out.println("Welcome to Tic Tac Toe");
+            System.out.println("Player X starts the game.\nLets play!");
+
+            printGame();
+
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Choose a number:");
+            String userInput = scanner.nextLine();
+            boolean isValid = isValidInput(userInput);
+
         }
+
     }
+
+    // --------------------------------
 
     public void printGame() {
         System.out.println("-------------");
@@ -30,6 +35,8 @@ public class TicTacToe {
         }
     }
 
+    // --------------------------------
+
     public boolean isValidInput(String userInput) {
         if (userInput.length() == 1) {
             char ch = userInput.charAt(0);
@@ -39,22 +46,4 @@ public class TicTacToe {
         return false;
     }
 
-    public void run() {
-
-        while (true) {
-            initializeGameBoard();
-
-            System.out.println("Welcome to Tic Tac Toe");
-            System.out.println("Player X starts the game. Lets play!");
-
-            printGame();
-
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Choose a number:");
-            String userInput = scanner.nextLine();
-            boolean isValid = isValidInput(userInput);
-
-        }
-
-    }
 }

@@ -7,7 +7,6 @@ public class TicTacToeTest {
     @BeforeEach
     public void beforeTest() {
         game = new TicTacToe();
-        game.initializeGameBoard();
         System.out.println("Test started");
     }
 
