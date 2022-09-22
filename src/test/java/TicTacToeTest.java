@@ -49,13 +49,25 @@ public class TicTacToeTest {
     }
 
     @Test
-    @DisplayName("Add x/o to list if square is free")
-    public void addToListIfFree() {
-        game.gameBoard.setBoard(0, 0, 'X');
-        game.gameBoard.setBoard(0, 0, 'O');
+    @DisplayName("Add play of x to the game board")
+    public void addPlayToBoard() {
+        game.gameBoard.setBoard( 1, 'X');
 
         assertEquals('X', game.gameBoard.getBoard()[0][0]);
-
     }
 
+    @Test
+    @DisplayName("Chosen spot on the game board is not empty")
+    public void boardSpotIsNotEmpty() {
+        game.gameBoard.setBoard( 1, 'O');
+
+        assertFalse(game.isEmptySpot(game.gameBoard.getBoard()[0][0]));
+    }
+
+    @Test
+    @DisplayName("Player X play when the number of turns is an odd number")
+    public void playerXPlaysOnOddTurns() {
+        char player = game.playersTurn(3);
+        assertEquals('X', player);
+    }
 }
