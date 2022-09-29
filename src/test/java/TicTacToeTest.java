@@ -24,7 +24,7 @@ public class TicTacToeTest {
 
     @Test
     @DisplayName("Game board is empty at start of a new game")
-    public void gameBoardIsEmptyWhenStaringGame() {
+    public void gameBoardIsEmptyWhenStartingGame() {
         boolean boardIsEmpty = true;
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
@@ -65,9 +65,42 @@ public class TicTacToeTest {
     }
 
     @Test
-    @DisplayName("Player X play when the number of turns is an odd number")
+    @DisplayName("Player X turn to play when the number of turns is an odd number")
     public void playerXPlaysOnOddTurns() {
         char player = game.playersTurn(3);
         assertEquals('X', player);
+    }
+
+    @Test
+    @DisplayName("Three in a row diagonally wins the game")
+    public void threeInARowDiagonallyIsAWin() {
+        game.gameBoard.setBoard( 1, 'X');
+        game.gameBoard.setBoard( 5, 'X');
+        game.gameBoard.setBoard( 9, 'X');
+        int turn = 3;
+
+        assertEquals('X', game.checkWinner(turn));
+    }
+
+    @Test
+    @DisplayName("Three in a row vertically wins the game")
+    public void threeInARowVerticallyIsAWin() {
+        game.gameBoard.setBoard( 1, 'O');
+        game.gameBoard.setBoard( 4, 'O');
+        game.gameBoard.setBoard( 7, 'O');
+        int turn = 3;
+
+        assertEquals('O', game.checkWinner(turn));
+    }
+
+    @Test
+    @DisplayName("Three in a row horizontally wins the game")
+    public void threeInARowHorizontallyIsAWin() {
+        game.gameBoard.setBoard( 1, 'O');
+        game.gameBoard.setBoard( 2, 'O');
+        game.gameBoard.setBoard( 3, 'O');
+        int turn = 3;
+
+        assertEquals('O', game.checkWinner(turn));
     }
 }
